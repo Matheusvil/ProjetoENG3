@@ -8,7 +8,8 @@ import {
     ButtonToolbar,
     Button,
   } from 'rsuite';
-  import './style.scss';
+import { Link } from 'react-router-dom'
+import './style.scss';
 
 const login = () =>{
     return (
@@ -28,6 +29,13 @@ const login = () =>{
                     <ButtonToolbar>
                         <Button appearance="primary">
                         Entrar
+                        </Button>
+                    </ButtonToolbar>
+                </FormGroup>
+                <FormGroup>
+                    <ButtonToolbar>
+                        <Button appearance="primary">
+                        <Link to="/cadastrar">Cadastrar</Link>
                         </Button>
                     </ButtonToolbar>
                 </FormGroup>

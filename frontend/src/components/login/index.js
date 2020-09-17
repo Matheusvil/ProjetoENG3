@@ -1,13 +1,6 @@
 import React from 'react';
-import {
-    Form,
-    FormGroup,
-    FormControl,
-    ControlLabel,
-    HelpBlock,
-    ButtonToolbar,
-    Button,
-  } from 'rsuite';
+import 'rsuite/dist/styles/rsuite-default.css';
+import { Form, FormGroup, FormControl, ControlLabel, HelpBlock, Button, ButtonToolbar } from 'rsuite';
 import { Link } from 'react-router-dom'
 import './style.scss';
 
@@ -15,6 +8,7 @@ const login = () =>{
     return (
         <div className="body">
             <Form>
+                <h2>Login</h2>
                 <FormGroup>
                     <ControlLabel>Email</ControlLabel>
                     <FormControl name="email" type="email" />
@@ -28,13 +22,9 @@ const login = () =>{
                 <FormGroup>
                     <ButtonToolbar>
                         <Button appearance="primary">
-                        Entrar
+                            Entre
                         </Button>
-                    </ButtonToolbar>
-                </FormGroup>
-                <FormGroup>
-                    <ButtonToolbar>
-                        <Button appearance="primary">
+                        <Button appearance="ghost">
                         <Link to="/cadastrar">Cadastrar</Link>
                         </Button>
                     </ButtonToolbar>

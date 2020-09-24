@@ -16,18 +16,8 @@ const cadastro = () =>{
         <div className="body">
             <Form>
                 <FormGroup>
-                    <ControlLabel>Nome</ControlLabel>
+                    <ControlLabel>UserName</ControlLabel>
                     <FormControl name="name" />
-                    <HelpBlock tooltip>Required</HelpBlock>
-                </FormGroup>
-                <FormGroup>
-                    <ControlLabel>Sobrenome</ControlLabel>
-                    <FormControl name="name" />
-                    <HelpBlock tooltip>Required</HelpBlock>
-                </FormGroup>
-                <FormGroup>
-                    <ControlLabel>Data de nascimento</ControlLabel>
-                    <FormControl name="data" type="date"/>
                     <HelpBlock tooltip>Required</HelpBlock>
                 </FormGroup>
                 <FormGroup>
@@ -37,11 +27,6 @@ const cadastro = () =>{
                 </FormGroup>
                 <FormGroup>
                     <ControlLabel>Senha</ControlLabel>
-                    <FormControl name="password" type="password" />
-                    <HelpBlock tooltip>Required</HelpBlock>
-                </FormGroup>
-                <FormGroup>
-                    <ControlLabel>Verifique a senha</ControlLabel>
                     <FormControl name="password" type="password" />
                     <HelpBlock tooltip>Required</HelpBlock>
                 </FormGroup>

@@ -1,10 +1,10 @@
 import React from 'react';
-import Sidebar from '../../components/sidebar'
+import Navbar from '../../components/navbar'
 
 const inicio = () => {
   return (
     <div className="container">
-      <Sidebar/>
+      <Navbar/>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import 'rsuite/dist/styles/rsuite-default.css';
 import { Form, FormGroup, FormControl, ControlLabel, HelpBlock, Button, ButtonToolbar } from 'rsuite';
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import './style.scss';
 
 const login = () =>{
@@ -25,7 +25,7 @@ const login = () =>{
                             Entre
                         </Button>
                         <Button appearance="ghost">
-                        <Link to="/cadastrar">Cadastrar</Link>
+                        <NavLink to="/cadastrar">Cadastrar</NavLink>
                         </Button>
                     </ButtonToolbar>
                 </FormGroup>

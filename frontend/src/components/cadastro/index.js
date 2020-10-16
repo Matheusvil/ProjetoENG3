@@ -9,7 +9,7 @@ import {
     Button,
   } from 'rsuite';
 import './style.scss';
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const cadastro = () =>{
     return (
@@ -35,8 +35,8 @@ const cadastro = () =>{
                         <Button appearance="primary">
                         Cadastrar
                         </Button>
-                        <Button appearance="primary">
-                        <Link to="/">Cancelar</Link>
+                        <Button appearance="ghost">
+                        <NavLink to="/">Cancelar</NavLink>
                         </Button>
                     </ButtonToolbar>
                 </FormGroup>

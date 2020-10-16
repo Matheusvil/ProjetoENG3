@@ -35,7 +35,7 @@ const cadastro = () =>{
                         <Button appearance="primary">
                         Cadastrar
                         </Button>
-                        <Button appearance="primary">
+                        <Button appearance="ghost">
                         <Link to="/">Cancelar</Link>
                         </Button>
                     </ButtonToolbar>

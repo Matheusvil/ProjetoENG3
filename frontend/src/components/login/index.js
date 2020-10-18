@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'rsuite/dist/styles/rsuite-default.css';
 import { Form, FormGroup, FormControl, ControlLabel, HelpBlock, Button, ButtonToolbar } from 'rsuite';
 import { NavLink } from 'react-router-dom'
 import './style.scss';
 
-const login = () =>{
+const Login = (props) =>{
+    const { onClickButton = () => {} } = props;
+    const [user, setUser] = useState();
+    function getForm(value) {
+        setUser(value);
+    }
+    function sendInfo() {
+        onClickButton(user);
+    }
     return (
         <div className="body">
-            <Form>
+            <Form
+            onChange={(e) => {
+                getForm(e);
+            }}          
+            >
                 <h2>Login</h2>
                 <FormGroup>
                     <ControlLabel>Email</ControlLabel>
@@ -21,7 +33,7 @@ const login = () =>{
                 </FormGroup>
                 <FormGroup>
                     <ButtonToolbar>
-                        <Button appearance="primary">
+                        <Button appearance="primary" onClick={sendInfo}>
                             Entre
                         </Button>
                         <Button appearance="ghost">
@@ -33,4 +45,5 @@ const login = () =>{
         </div>
     );
 };
-export default login;
+
+export default Login;

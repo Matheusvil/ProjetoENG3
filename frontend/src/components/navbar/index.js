@@ -15,20 +15,12 @@ const NavBarInstance = () => {
           </NavLink>
         </Navbar.Header>
         <Navbar.Body>
-          <Nav>
+          <Nav pullRight>
           <Nav.Item>
               <NavLink to="/">Alfabeto em Libras</NavLink>
             </Nav.Item>
             <Nav.Item>
               <NavLink to="/">Reconhecimento de gestos</NavLink>
-            </Nav.Item>
-          </Nav>
-          <Nav pullRight>
-            <Nav.Item>
-              <NavLink to="/login">Login</NavLink>
-            </Nav.Item>
-            <Nav.Item>
-              <NavLink to="/cadastrar">Cadastrar</NavLink>
             </Nav.Item>
           </Nav>
         </Navbar.Body>

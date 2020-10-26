@@ -35,7 +35,7 @@ const home = () =>{
                 <ButtonToolbar>
                         <Button color="green" >
                             <Icon icon="save">
-                                <NavLink to="/cadastrar">Quero me cadastrar!</NavLink>
+                                <NavLink to="/cadastro">Quero me cadastrar!</NavLink>
                             </Icon>
                         </Button>
                     </ButtonToolbar>

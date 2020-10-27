@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import 'rsuite/dist/styles/rsuite-default.css';
 import { Form, FormGroup, FormControl, ControlLabel, HelpBlock, Button, ButtonToolbar } from 'rsuite';
-import { NavLink } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import './style.scss';
 
 const Login = (props) =>{
     const { onClickButton = () => {} } = props;
     const [user, setUser] = useState();
+    const history = useHistory();
+    const navigateTo = () => history.push('/cadastro');
     function getForm(value) {
         setUser(value);
     }
@@ -36,8 +38,8 @@ const Login = (props) =>{
                         <Button appearance="primary" onClick={sendInfo}>
                             Entre
                         </Button>
-                        <Button appearance="ghost">
-                        <NavLink to="/cadastrar">Cadastrar</NavLink>
+                        <Button appearance="ghost" onClick={navigateTo}>
+                            Cadastrar
                         </Button>
                     </ButtonToolbar>
                 </FormGroup>

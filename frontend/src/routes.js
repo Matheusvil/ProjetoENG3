@@ -10,11 +10,6 @@ import alfabeto from './view/alfabeto'
 const Routes = () => {
     const [auth] = useContext(AuthContext);
   
-    const isAdmin = () => {
-      console.log(auth);
-      return auth && auth.user.role;
-    };
-  
     const isLogin = () => {
       return auth;
     };

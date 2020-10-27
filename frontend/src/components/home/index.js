@@ -2,10 +2,13 @@ import React from 'react';
 import 'rsuite/dist/styles/rsuite-default.css';
 import { Grid, Row, Col } from 'rsuite';
 import { Button, ButtonToolbar, Icon} from 'rsuite';
-import { NavLink } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import './style.scss';
 
-const home = () =>{
+const Home = () =>{
+    const history = useHistory();
+    const navigateTo = () => history.push('/login');
+    const goToSignup = () => history.push('/cadastro')
     return(
         <Grid fluid>
             <Row className="show-grid">
@@ -24,18 +27,18 @@ const home = () =>{
             <Row className="show-grid">
                 <Col xs={12}>
                     <ButtonToolbar>
-                        <Button color="blue" >
+                        <Button color="blue" onClick={navigateTo}>
                             <Icon icon="user"> 
-                                <NavLink to="/login">Já possuo Login!</NavLink>    
+                                Já possuo Login!  
                             </Icon>
                         </Button>
                     </ButtonToolbar>
                 </Col>
                 <Col xs={12}>
                 <ButtonToolbar>
-                        <Button color="green" >
+                        <Button color="green" onClick={goToSignup}>
                             <Icon icon="save">
-                                <NavLink to="/cadastro">Quero me cadastrar!</NavLink>
+                                Quero me cadastrar!
                             </Icon>
                         </Button>
                     </ButtonToolbar>
@@ -45,4 +48,4 @@ const home = () =>{
     );
 };
 
-export default home;
+export default Home;

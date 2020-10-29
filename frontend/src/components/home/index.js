@@ -1,6 +1,6 @@
 import React from 'react';
 import 'rsuite/dist/styles/rsuite-default.css';
-import { Grid, Row, Col } from 'rsuite';
+import { Grid, Row, Col, FlexboxGrid } from 'rsuite';
 import { Button, ButtonToolbar, Icon} from 'rsuite';
 import { useHistory } from 'react-router-dom'
 import './style.scss';
@@ -27,24 +27,24 @@ Praesent eget ornare metus. Quisque vel maximus libero. Vivamus tincidunt mi com
 Nam suscipit finibus nulla. Suspendisse ut arcu commodo, semper ipsum ac, lacinia massa. Praesent leo ex, euismod laoreet velit ultricies, pharetra tincidunt velit. Sed aliquet tempus aliquet. Fusce libero eros, luctus sed consectetur non, luctus et quam. Etiam vel nunc non dolor feugiat efficitur. Nulla ultrices, est ac placerat finibus, orci metus blandit erat, luctus laoreet massa ante nec leo. Morbi aliquam, purus malesuada tempus vestibulum, ex augue elementum ante, ut porttitor mi lorem eu lectus. Fusce eget ultricies purus, ac tristique velit. Aliquam ultrices pulvinar nibh id malesuada. Etiam quis leo et augue luctus ullamcorper. Mauris vel luctus leo. Integer nec augue et lacus auctor efficitur.</label>
                 </Col>
             </Row>
-            <Row className="show-grid" id="buttonGroup">
-                <Col xs={12}>
+            <FlexboxGrid justify="center">
+                <FlexboxGrid.Item colspan={4}>
                     <ButtonToolbar>
                         <Button color="blue" onClick={navigateTo}>
                             <Icon icon="user" className="icon"></Icon>
                             <label>Já possuo Login!</label>
                         </Button>
                     </ButtonToolbar>
-                </Col>
-                <Col xs={12}>
-                <ButtonToolbar>
+                </FlexboxGrid.Item>
+                <FlexboxGrid.Item colspan={4}>
+                    <ButtonToolbar>
                         <Button color="green" onClick={goToSignup}>
                             <Icon icon="save" className="icon"></Icon>
                             <label>Quero me cadastrar!</label>
                         </Button>
                     </ButtonToolbar>
-                </Col>
-            </Row>
+                </FlexboxGrid.Item>
+            </FlexboxGrid>
         </Grid>
     );
 };

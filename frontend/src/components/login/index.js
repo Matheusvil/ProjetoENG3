@@ -36,7 +36,7 @@ const Login = (props) =>{
                 <FormGroup>
                     <ButtonToolbar>
                         <Button appearance="primary" onClick={sendInfo}>
-                            Entre
+                            Entrar
                         </Button>
                         <Button appearance="ghost" onClick={navigateTo}>
                             Cadastrar

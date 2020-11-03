@@ -1,21 +1,41 @@
-import React, {Component} from 'react';
-import {Route, Switch, BrowserRouter} from 'react-router-dom';
+import React, { useContext } from 'react';
+import {Route, Switch, BrowserRouter, Redirect} from 'react-router-dom';
+import { AuthContext } from './context/auth';
 import login from './view/login';
 import cadastro from './view/cadastro'
 import home from './view/home'
+import alfabeto from './view/alfabeto'
 
-export class Routes extends Component {
-    render() {
-        return (
-            <BrowserRouter>
-                <Switch>
-                    <Route exact path='/' component={home}/>
-                    <Route exact path='/cadastrar' component={cadastro}/>
-                    <Route exact path='/login' component={login}/>
-                </Switch>
-            </BrowserRouter>
-        )
-    }
-};
 
-export default Routes;
+const Routes = () => {
+    const [auth] = useContext(AuthContext);
+  
+    const isLogin = () => {
+      return auth;
+    };
+  
+    const PrivateRoute = ({ component: Component, ...rest }) => {
+      return (
+        <Route
+          {...rest}
+          render={(props) =>
+            isLogin() ? <Component {...props} /> : <Redirect to="/login" />
+          }
+        />
+      );
+    };
+  
+    return (
+      <BrowserRouter>
+        <Switch>
+          <PrivateRoute path="/alfabeto" exact component={alfabeto} />
+          <Route path="/" exact component={home} />
+          <Route path="/login" exact component={login} />
+          <Route path="/cadastro" exact component={cadastro} />
+        </Switch>
+      </BrowserRouter>
+    );
+  };
+  
+  export default Routes;
+  

@@ -1,14 +1,15 @@
 import React from 'react';
 import Navbar from '../../components/navbar'
-import Home from '../../components/home'
+import Alfa from '../../components/alfabeto'
 
-const inicio = () => {
+
+const Alfabeto = () => {
   return (
     <div className="container">
       <Navbar/>
-      <Home />
+      <Alfa />
     </div>
   );
 };
 
-export default inicio;
+export default Alfabeto;

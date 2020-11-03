@@ -1,23 +1,35 @@
-import React from 'react';
-import {
-    Form,
-    FormGroup,
-    FormControl,
-    ControlLabel,
-    HelpBlock,
-    ButtonToolbar,
-    Button,
-  } from 'rsuite';
+import React, { useState } from 'react';
+import { Form, FormGroup, FormControl, ControlLabel, HelpBlock, Button, ButtonToolbar } from 'rsuite';
 import './style.scss';
-import { NavLink } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
-const cadastro = () =>{
+
+const Cadastro = (props) =>{
+    const { onClickButton = () => {} } = props;
+    const [user, setUser] = useState();
+    const history = useHistory();
+    const navigateTo = () => history.push('/');
+    function getForm(value) {
+        setUser(value);
+    }
+    function sendInfo() {
+        onClickButton(user);
+    }
     return (
         <div className="body">
-            <Form>
+            <Form
+            onChange={(e) => {
+                getForm(e);
+            }} 
+            >
+                <FormGroup>
+                    <ControlLabel>Name</ControlLabel>
+                    <FormControl name="name" />
+                    <HelpBlock tooltip>Required</HelpBlock>
+                </FormGroup>
                 <FormGroup>
                     <ControlLabel>UserName</ControlLabel>
-                    <FormControl name="name" />
+                    <FormControl name="username" />
                     <HelpBlock tooltip>Required</HelpBlock>
                 </FormGroup>
                 <FormGroup>
@@ -32,11 +44,11 @@ const cadastro = () =>{
                 </FormGroup>
                 <FormGroup>
                     <ButtonToolbar>
-                        <Button appearance="primary">
+                        <Button appearance="primary" onClick={sendInfo}>
                         Cadastrar
                         </Button>
-                        <Button appearance="ghost">
-                        <NavLink to="/">Cancelar</NavLink>
+                        <Button appearance="ghost" onClick={navigateTo}>
+                        Cancelar
                         </Button>
                     </ButtonToolbar>
                 </FormGroup>
@@ -44,4 +56,4 @@ const cadastro = () =>{
         </div>
     );
 };
-export default cadastro;
+export default Cadastro;

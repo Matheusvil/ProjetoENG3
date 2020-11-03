@@ -1,0 +1,22 @@
+@font-face{
+    font-family: Libras;
+    src: url(../../lib/fonts/Libras2020-Regular.ttf);
+}
+h1{
+    text-align: center;
+}
+
+.show-grid{
+    padding: 20px;
+}
+
+h2{
+    display: inline-flex;
+    margin: 10px;
+    font-size: 60px;
+}
+
+.libras{
+    font-family: Libras;
+    font-size: 75px;
+}

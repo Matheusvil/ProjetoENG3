@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import {Route, Switch, BrowserRouter, Redirect} from 'react-router-dom';
 import { AuthContext } from './context/auth';
 import login from './view/login';
-import cadastro from './view/cadastro'
-import home from './view/home'
-import alfabeto from './view/alfabeto'
+import cadastro from './view/cadastro';
+import home from './view/home';
+import alfabeto from './view/alfabeto';
+import gestos from './view/gestos';
 
 
 const Routes = () => {
@@ -29,6 +30,7 @@ const Routes = () => {
       <BrowserRouter>
         <Switch>
           <PrivateRoute path="/alfabeto" exact component={alfabeto} />
+          <Route path="/gestos" exact component={gestos} />
           <Route path="/" exact component={home} />
           <Route path="/login" exact component={login} />
           <Route path="/cadastro" exact component={cadastro} />

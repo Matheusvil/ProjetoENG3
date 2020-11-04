@@ -7,7 +7,7 @@ import './style.scss';
 const NavBarInstance = () => {
   const history = useHistory();
   const navigateTo = () => history.push('/alfabeto');
-  const goTo = () => history.push('/')
+  const goTo = () => history.push('/gestos');
   return (
     <Navbar className="navbody" appearance="inverse">
       <Navbar.Header>

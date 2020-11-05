@@ -22,6 +22,7 @@ const Cadastro = (props) =>{
                 getForm(e);
             }} 
             >
+                <h3>Cadastrar</h3>
                 <FormGroup>
                     <ControlLabel>Name</ControlLabel>
                     <FormControl name="name" />

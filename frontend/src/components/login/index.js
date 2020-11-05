@@ -22,7 +22,7 @@ const Login = (props) =>{
                 getForm(e);
             }}          
             >
-                <h2>Login</h2>
+                <h3>Login</h3>
                 <FormGroup>
                     <ControlLabel>Email</ControlLabel>
                     <FormControl name="email" type="email" />

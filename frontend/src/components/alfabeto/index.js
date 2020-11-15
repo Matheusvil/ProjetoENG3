@@ -1,6 +1,6 @@
 import React from 'react';
 import 'rsuite/dist/styles/rsuite-default.css';
-import { Grid, Row, Col, FlexboxGrid } from 'rsuite';
+import { Grid, Row, Col } from 'rsuite';
 import './style.scss';
 
 const Alfa = () =>{

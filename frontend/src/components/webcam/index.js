@@ -5,18 +5,23 @@ import Webcam from "react-webcam";
 import "./style.scss";
 import { drawHand } from "./utilities";
 import * as fp from "fingerpose";
-import victory from "./victory.png";
-import thumbs_up from "./thumbs_up.png";
+import thumbs_up from "./images/thumbs_up.png";
+import letraV from "./images/letraV.png";
+import letraL from "./images/letraL.png";
+import letraM from "./images/letraM.png";
+import letraC from "./images/letraC.png";
+import letraMGesture from "./gestures/letraM";
+import letraCGesture from "./gestures/letraC";
+import letraLGesture from "./gestures/letraL";
 
 
 function Detection() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
-
-  ///////// NEW STUFF ADDED STATE HOOK
+ 
   const [emoji, setEmoji] = useState(null);
-  const images = { thumbs_up: thumbs_up, victory: victory };
-  ///////// NEW STUFF ADDED STATE HOOK
+  const images = { thumbs_up: thumbs_up, letraV: letraV, letraL: letraL, letraM: letraM, letraC: letraC };
+
 
   const runHandpose = async () => {
     const net = await handpose.load();
@@ -51,13 +56,15 @@ function Detection() {
       const hand = await net.estimateHands(video);
       // console.log(hand);
 
-      ///////// NEW STUFF ADDED GESTURE HANDLING
-
       if (hand.length > 0) {
         const GE = new fp.GestureEstimator([
-          fp.Gestures.VictoryGesture,
-          fp.Gestures.ThumbsUpGesture,
+            fp.Gestures.ThumbsUpGesture,
+            fp.Gestures.VictoryGesture,
+            letraLGesture,
+            letraMGesture,
+            letraCGesture,
         ]);
+
         const gesture = await GE.estimate(hand[0].landmarks, 4);
         if (gesture.gestures !== undefined && gesture.gestures.length > 0) {
           // console.log(gesture.gestures);
@@ -68,18 +75,17 @@ function Detection() {
           const maxConfidence = confidence.indexOf(
             Math.max.apply(null, confidence)
           );
-          // console.log(gesture.gestures[maxConfidence].name);
+          console.log(gesture.gestures[maxConfidence].name);
           setEmoji(gesture.gestures[maxConfidence].name);
-          console.log(emoji);
+          // console.log(emoji);
         }
       }
-
-      ///////// NEW STUFF ADDED GESTURE HANDLING
-
       // Draw mesh
       const ctx = canvasRef.current.getContext("2d");
       drawHand(hand, ctx);
     }
+ 
+    
   };
 
   useEffect(()=>{runHandpose()},[]);
@@ -93,12 +99,14 @@ function Detection() {
             position: "absolute",
             marginLeft: "auto",
             marginRight: "auto",
+            marginTop: 25,
             left: 0,
             right: 0,
             textAlign: "center",
             zindex: 9,
             width: 640,
             height: 480,
+            audio: false,
           }}
         />
 
@@ -108,6 +116,7 @@ function Detection() {
             position: "absolute",
             marginLeft: "auto",
             marginRight: "auto",
+            marginTop: 25,
             left: 0,
             right: 0,
             textAlign: "center",
@@ -116,7 +125,6 @@ function Detection() {
             height: 480,
           }}
         />
-        {/* NEW STUFF */}
         {emoji !== null ? (
           <img
             src={images[emoji]}
@@ -134,8 +142,6 @@ function Detection() {
         ) : (
           ""
         )}
-
-        {/* NEW STUFF */}
       </header>
     </div>
   );

@@ -6,7 +6,7 @@ import "./style.scss";
 import { drawHand } from "./utilities";
 import * as fp from "fingerpose";
 import thumbs_up from "./images/thumbs_up.png";
-import letraV from "./images/letraV.png";
+import victory from "./images/victory.png";
 import letraL from "./images/letraL.png";
 import letraM from "./images/letraM.png";
 import letraC from "./images/letraC.png";
@@ -20,7 +20,7 @@ function Detection() {
   const canvasRef = useRef(null);
  
   const [emoji, setEmoji] = useState(null);
-  const images = { thumbs_up: thumbs_up, letraV: letraV, letraL: letraL, letraM: letraM, letraC: letraC };
+  const images = { thumbs_up: thumbs_up, victory: victory, letraL: letraL, letraM: letraM, letraC: letraC };
 
 
   const runHandpose = async () => {
@@ -99,7 +99,7 @@ function Detection() {
             position: "absolute",
             marginLeft: "auto",
             marginRight: "auto",
-            marginTop: 25,
+            marginTop: 20,
             left: 0,
             right: 0,
             textAlign: "center",
@@ -116,7 +116,7 @@ function Detection() {
             position: "absolute",
             marginLeft: "auto",
             marginRight: "auto",
-            marginTop: 25,
+            marginTop: 20,
             left: 0,
             right: 0,
             textAlign: "center",
